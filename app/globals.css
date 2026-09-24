@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Noto Sans", "Noto Sans SC", "Noto Sans Devanagari", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f2eee6;
+  color: #1c1f22;
+}
+
+::selection {
+  background-color: #c1571c;
+  color: #f2eee6;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid #c1571c;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

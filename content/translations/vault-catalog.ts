@@ -1,0 +1,273 @@
+import type { DocBlock } from "../docs.generated";
+import type { Locale } from "@/lib/i18n";
+
+// Full translation of docs/02-intermediate/01-vault-catalog.md.
+// Vault names, asset symbols, curator names and addresses are left as in the
+// English source; descriptive text (Access/Notes/etc.) is translated.
+export const vaultCatalog: Partial<Record<Locale, DocBlock[]>> = {
+  ur: [
+    { type: "quote", text: "**Level:** Intermediate · Data upar diye gaye date par [app.concrete.xyz/earn](https://app.concrete.xyz/earn) se parhi gayi. Vault lists, APYs aur TVL badalte rehte hain - action lene se pehle **app par dobara verify karein**. Captured page text mein TVL/APY figures render nahi huay thay, is liye yahan jaan boojh kar chhor diye gaye hain." },
+    { type: "heading", level: 2, text: "Vault card kaise parhein" },
+    {
+      type: "table",
+      headers: ["Field", "Matlab"],
+      rows: [
+        ["**Target APY / Live APY / 7-day live APY**", "Target = advertised goal; *Live* reported APYs ka position-weighted average hai; 7-day usi ka trailing week wala version hai. Koi bhi guaranteed nahi hai."],
+        ["**Curator**", "Wo operator jo strategy chalata hai (Concrete, Royco, USDai…)."],
+        ["**Withdrawal queue**", "Exits kitna waqt letay hain / kaunsa model use hota hai."],
+        ["**Vault token / withdrawal token**", "Deposit par / exit request karte waqt aapko kya milta hai."],
+        ["**Wallet setup**", "Strategy wallet ke peeche custody technology (Fireblocks, Fordefi…)."],
+        ["**Auditors**", "Wo firms jinhon ne vault code audit kiya."],
+        ["**Permissioned**", "Deposits sirf approved participants tak mehdood."],
+      ],
+    },
+    { type: "heading", level: 2, text: "Snapshot par live vaults" },
+    {
+      type: "table",
+      headers: ["Vault", "Asset", "Chain", "Curator", "Access", "Notes"],
+      rows: [
+        ["**RWA USD1**", "USD1", "Ethereum", "Concrete", "Permissioned", "Dikhaya gaya Target APY: 8%. Institutional RWA-style vault."],
+        ["**WBTC Vault**", "WBTC", "Ethereum", "Concrete", "Open", "Wallet: Fireblocks. Auditors listed: Halborn, Code4rena, Zellic. Withdrawal queue: 21 din. Address `0xf72bd5a56de97840f1fdd3641b556126c10aa1c4`."],
+        ["**Royco ETH**", "ETH", "Ethereum", "Royco", "Open (deposit Royco ke app par hota hai)", "Address `0x41Ce72E04D349Eb957bdc373baA9c69207032c56`. Wallet: Royco dekhein."],
+        ["**Senior Royco USDC**", "USDC", "Ethereum", "Royco", "Open (Royco ke zariye)", "Address `0xcd9f5907f92818bc06c9ad70217f089e190d2a32`."],
+        ["**Concrete DeFi USDT**", "USDT", "Ethereum", "Concrete", "Open", "Share token `ctDefiUSDT`. Wallet: Fordefi (policy-controlled, approved signers). Auditors: Halborn, Cantina. Address `0x0e609b710da5e0aa476224b6c0e5445ccc21251e`."],
+        ["**WeETH Vault**", "weETH", "Ethereum", "Concrete", "Private / permissioned", "-"],
+        ["**Concrete Frontier**", "USDC", "Ethereum", "Concrete", "Open", "Wallet: Fireblocks. Auditors: Halborn, Cantina. Address `0xe72d4cc29285e33a1bd3f2a5e433256378ebfb88`."],
+        ["**WLFIcx**", "(AssetCX-style `cx` vault)", "Ethereum", "Concrete", "Permission required", "Institutional."],
+      ],
+    },
+    { type: "heading", level: 2, text: "Complete hui campaigns" },
+    {
+      type: "table",
+      headers: ["Campaign", "Network(s)", "Curator", "Status"],
+      rows: [
+        ["**USDai DEX & MM**", "Arbitrum", "USDai", "Complete → withdraw-only wind-down"],
+        ["**Stable**", "Stable, Ethereum", "Concrete", "Complete → withdraw-only wind-down"],
+      ],
+    },
+    { type: "p", text: "Dekhein [Campaigns & pre-deposits](/docs/02-intermediate/04-campaigns-and-predeposits)." },
+    { type: "heading", level: 2, text: "Naming conventions" },
+    {
+      type: "ul",
+      items: [
+        "`ct<Asset>` - normal vault share (misal: `ctDefiUSDT`).",
+        "`<asset>cx` - **AssetCX** vaults qualified-custody assets ke liye, *Permission Required* ke tor par dikhaye jatay hain.",
+        "\"Senior\"/\"Frontier\" waghera product labels hain jo vault deploy karne wala choose karta hai.",
+      ],
+    },
+    { type: "heading", level: 2, text: "Apne criteria par vaults compare karein" },
+    { type: "p", text: "Sirf APY dekh kar **na choose karein**. Yeh check karein: strategy type, custody model, curator ki reputation, audit scope/date, withdrawal delay aur caps, cooldowns, fee schedule aur kya vault permissioned hai. Community *Vault Explorer* aur *Vault Optimizer* tools compare karne mein madad karte hain (dekhein [Tools catalog](/docs/04-ecosystem/01-tools-catalog))." },
+  ],
+  hi: [
+    { type: "quote", text: "**स्तर:** मध्यम · Data ऊपर दी गई तारीख को [app.concrete.xyz/earn](https://app.concrete.xyz/earn) से पढ़ा गया। Vault lists, APYs और TVL बदलते रहते हैं - कोई कदम उठाने से पहले **app पर दोबारा verify करें**। Captured page text में TVL/APY figures render नहीं हुए थे, इसलिए यहाँ जान-बूझकर छोड़ दिए गए हैं।" },
+    { type: "heading", level: 2, text: "Vault card कैसे पढ़ें" },
+    {
+      type: "table",
+      headers: ["Field", "अर्थ"],
+      rows: [
+        ["**Target APY / Live APY / 7-day live APY**", "Target = advertised goal; *Live* reported APYs का position-weighted average है; 7-day उसी का trailing week वाला version है। कोई भी guaranteed नहीं है।"],
+        ["**Curator**", "वह operator जो strategy चलाता है (Concrete, Royco, USDai…)।"],
+        ["**Withdrawal queue**", "Exits कितना समय लेते हैं / कौन सा model इस्तेमाल होता है।"],
+        ["**Vault token / withdrawal token**", "Deposit पर / exit request करते समय आपको क्या मिलता है।"],
+        ["**Wallet setup**", "Strategy wallet के पीछे custody technology (Fireblocks, Fordefi…)।"],
+        ["**Auditors**", "वे firms जिन्होंने vault code audit किया।"],
+        ["**Permissioned**", "Deposits सिर्फ approved participants तक सीमित।"],
+      ],
+    },
+    { type: "heading", level: 2, text: "Snapshot पर live vaults" },
+    {
+      type: "table",
+      headers: ["Vault", "Asset", "Chain", "Curator", "Access", "Notes"],
+      rows: [
+        ["**RWA USD1**", "USD1", "Ethereum", "Concrete", "Permissioned", "दिखाया गया Target APY: 8%। Institutional RWA-style vault।"],
+        ["**WBTC Vault**", "WBTC", "Ethereum", "Concrete", "Open", "Wallet: Fireblocks। Auditors listed: Halborn, Code4rena, Zellic। Withdrawal queue: 21 दिन। Address `0xf72bd5a56de97840f1fdd3641b556126c10aa1c4`।"],
+        ["**Royco ETH**", "ETH", "Ethereum", "Royco", "Open (deposit Royco के app पर होता है)", "Address `0x41Ce72E04D349Eb957bdc373baA9c69207032c56`। Wallet: Royco देखें।"],
+        ["**Senior Royco USDC**", "USDC", "Ethereum", "Royco", "Open (Royco के जरिए)", "Address `0xcd9f5907f92818bc06c9ad70217f089e190d2a32`।"],
+        ["**Concrete DeFi USDT**", "USDT", "Ethereum", "Concrete", "Open", "Share token `ctDefiUSDT`। Wallet: Fordefi (policy-controlled, approved signers)। Auditors: Halborn, Cantina। Address `0x0e609b710da5e0aa476224b6c0e5445ccc21251e`।"],
+        ["**WeETH Vault**", "weETH", "Ethereum", "Concrete", "Private / permissioned", "-"],
+        ["**Concrete Frontier**", "USDC", "Ethereum", "Concrete", "Open", "Wallet: Fireblocks। Auditors: Halborn, Cantina। Address `0xe72d4cc29285e33a1bd3f2a5e433256378ebfb88`।"],
+        ["**WLFIcx**", "(AssetCX-style `cx` vault)", "Ethereum", "Concrete", "Permission required", "Institutional।"],
+      ],
+    },
+    { type: "heading", level: 2, text: "पूरी हो चुकी campaigns" },
+    {
+      type: "table",
+      headers: ["Campaign", "Network(s)", "Curator", "Status"],
+      rows: [
+        ["**USDai DEX & MM**", "Arbitrum", "USDai", "पूरी → withdraw-only wind-down"],
+        ["**Stable**", "Stable, Ethereum", "Concrete", "पूरी → withdraw-only wind-down"],
+      ],
+    },
+    { type: "p", text: "देखें [Campaigns & pre-deposits](/docs/02-intermediate/04-campaigns-and-predeposits)।" },
+    { type: "heading", level: 2, text: "Naming conventions" },
+    {
+      type: "ul",
+      items: [
+        "`ct<Asset>` - normal vault share (उदाहरण: `ctDefiUSDT`)।",
+        "`<asset>cx` - **AssetCX** vaults qualified-custody assets के लिए, *Permission Required* के रूप में दिखाए जाते हैं।",
+        "\"Senior\"/\"Frontier\" आदि product labels हैं जो vault deploy करने वाला चुनता है।",
+      ],
+    },
+    { type: "heading", level: 2, text: "अपने criteria पर vaults compare करें" },
+    { type: "p", text: "सिर्फ APY देखकर **मत चुनें**। यह check करें: strategy type, custody model, curator की reputation, audit scope/date, withdrawal delay और caps, cooldowns, fee schedule और क्या vault permissioned है। Community *Vault Explorer* और *Vault Optimizer* tools compare करने में मदद करते हैं (देखें [Tools catalog](/docs/04-ecosystem/01-tools-catalog))।" },
+  ],
+  pcm: [
+    { type: "quote", text: "**Level:** Intermediate · Dem read data from [app.concrete.xyz/earn](https://app.concrete.xyz/earn) on di date wey dey up. Vault lists, APYs and TVL dey change - **re-verify for di app** before you act. Dem no render TVL/APY figures for di page text wey we capture, so we don leave dem out here on purpose." },
+    { type: "heading", level: 2, text: "How to read vault card" },
+    {
+      type: "table",
+      headers: ["Field", "Wetin e mean"],
+      rows: [
+        ["**Target APY / Live APY / 7-day live APY**", "Target = advertised goal; *Live* na position-weighted average of reported APYs; 7-day na di same thing for trailing week. None no dey guaranteed."],
+        ["**Curator**", "Di operator wey dey run di strategy (Concrete, Royco, USDai…)."],
+        ["**Withdrawal queue**", "How long / wetin model exits dey use."],
+        ["**Vault token / withdrawal token**", "Wetin you go collect when you deposit / when you request exit."],
+        ["**Wallet setup**", "Custody tech wey dey behind di strategy wallet (Fireblocks, Fordefi…)."],
+        ["**Auditors**", "Firms wey audit di vault code."],
+        ["**Permissioned**", "Deposits limited to only approved participants."],
+      ],
+    },
+    { type: "heading", level: 2, text: "Live vaults for di snapshot" },
+    {
+      type: "table",
+      headers: ["Vault", "Asset", "Chain", "Curator", "Access", "Notes"],
+      rows: [
+        ["**RWA USD1**", "USD1", "Ethereum", "Concrete", "Permissioned", "Target APY wey dem show: 8%. Institutional RWA-style vault."],
+        ["**WBTC Vault**", "WBTC", "Ethereum", "Concrete", "Open", "Wallet: Fireblocks. Auditors listed: Halborn, Code4rena, Zellic. Withdrawal queue: 21 days. Address `0xf72bd5a56de97840f1fdd3641b556126c10aa1c4`."],
+        ["**Royco ETH**", "ETH", "Ethereum", "Royco", "Open (deposit dey happen for Royco app)", "Address `0x41Ce72E04D349Eb957bdc373baA9c69207032c56`. Wallet: see Royco."],
+        ["**Senior Royco USDC**", "USDC", "Ethereum", "Royco", "Open (via Royco)", "Address `0xcd9f5907f92818bc06c9ad70217f089e190d2a32`."],
+        ["**Concrete DeFi USDT**", "USDT", "Ethereum", "Concrete", "Open", "Share token `ctDefiUSDT`. Wallet: Fordefi (policy-controlled, approved signers). Auditors: Halborn, Cantina. Address `0x0e609b710da5e0aa476224b6c0e5445ccc21251e`."],
+        ["**WeETH Vault**", "weETH", "Ethereum", "Concrete", "Private / permissioned", "-"],
+        ["**Concrete Frontier**", "USDC", "Ethereum", "Concrete", "Open", "Wallet: Fireblocks. Auditors: Halborn, Cantina. Address `0xe72d4cc29285e33a1bd3f2a5e433256378ebfb88`."],
+        ["**WLFIcx**", "(AssetCX-style `cx` vault)", "Ethereum", "Concrete", "Permission required", "Institutional."],
+      ],
+    },
+    { type: "heading", level: 2, text: "Campaigns wey don finish" },
+    {
+      type: "table",
+      headers: ["Campaign", "Network(s)", "Curator", "Status"],
+      rows: [
+        ["**USDai DEX & MM**", "Arbitrum", "USDai", "Don finish → withdraw-only wind-down"],
+        ["**Stable**", "Stable, Ethereum", "Concrete", "Don finish → withdraw-only wind-down"],
+      ],
+    },
+    { type: "p", text: "See [Campaigns & pre-deposits](/docs/02-intermediate/04-campaigns-and-predeposits)." },
+    { type: "heading", level: 2, text: "Naming conventions" },
+    {
+      type: "ul",
+      items: [
+        "`ct<Asset>` - normal vault share (e.g. `ctDefiUSDT`).",
+        "`<asset>cx` - **AssetCX** vaults for qualified-custody assets, dem go show am as *Permission Required*.",
+        "\"Senior\"/\"Frontier\" and so on na product labels wey di vault deployer choose.",
+      ],
+    },
+    { type: "heading", level: 2, text: "Compare vaults with your own criteria" },
+    { type: "p", text: "No pick am **by APY alone**. Check: strategy type, custody model, curator reputation, audit scope/date, withdrawal delay and caps, cooldowns, fee schedule and whether di vault permissioned. Di community *Vault Explorer* and *Vault Optimizer* tools go help you compare (see [Tools catalog](/docs/04-ecosystem/01-tools-catalog))." },
+  ],
+  zh: [
+    { type: "quote", text: "**级别：** 中级 · 数据于上述日期从 [app.concrete.xyz/earn](https://app.concrete.xyz/earn) 读取。Vault 列表、APY 和 TVL 会随时变化——操作前请**在应用内重新核实**。所抓取的页面文本中未渲染出 TVL/APY 数值，因此这里有意省略。" },
+    { type: "heading", level: 2, text: "如何读懂一张 vault 卡片" },
+    {
+      type: "table",
+      headers: ["字段", "含义"],
+      rows: [
+        ["**Target APY / Live APY / 7-day live APY**", "Target 是宣传的目标值；*Live* 是各仓位报告 APY 的加权平均值；7-day 则是过去一周的同类数值。这些都不构成保证。"],
+        ["**Curator**", "负责运行该策略的运营方（Concrete、Royco、USDai……）。"],
+        ["**Withdrawal queue**", "退出所需时间/所采用的模式。"],
+        ["**Vault token / withdrawal token**", "存款时获得的代币 / 申请退出时获得的代币。"],
+        ["**Wallet setup**", "策略钱包背后的托管技术（Fireblocks、Fordefi……）。"],
+        ["**Auditors**", "对该 vault 代码进行审计的机构。"],
+        ["**Permissioned**", "仅限已获批准的参与者存款。"],
+      ],
+    },
+    { type: "heading", level: 2, text: "快照时的在运行 vault" },
+    {
+      type: "table",
+      headers: ["Vault", "资产", "链", "Curator", "访问权限", "备注"],
+      rows: [
+        ["**RWA USD1**", "USD1", "Ethereum", "Concrete", "Permissioned（需许可）", "显示的 Target APY：8%。机构级 RWA 类型 vault。"],
+        ["**WBTC Vault**", "WBTC", "Ethereum", "Concrete", "Open（开放）", "钱包：Fireblocks。已列出的审计方：Halborn、Code4rena、Zellic。提现排队时间：21 天。地址 `0xf72bd5a56de97840f1fdd3641b556126c10aa1c4`。"],
+        ["**Royco ETH**", "ETH", "Ethereum", "Royco", "Open（存款在 Royco 的应用中完成）", "地址 `0x41Ce72E04D349Eb957bdc373baA9c69207032c56`。钱包详情见 Royco。"],
+        ["**Senior Royco USDC**", "USDC", "Ethereum", "Royco", "Open（通过 Royco）", "地址 `0xcd9f5907f92818bc06c9ad70217f089e190d2a32`。"],
+        ["**Concrete DeFi USDT**", "USDT", "Ethereum", "Concrete", "Open（开放）", "份额代币 `ctDefiUSDT`。钱包：Fordefi（策略控制、已批准签名人）。审计方：Halborn、Cantina。地址 `0x0e609b710da5e0aa476224b6c0e5445ccc21251e`。"],
+        ["**WeETH Vault**", "weETH", "Ethereum", "Concrete", "Private / permissioned（私有/需许可）", "-"],
+        ["**Concrete Frontier**", "USDC", "Ethereum", "Concrete", "Open（开放）", "钱包：Fireblocks。审计方：Halborn、Cantina。地址 `0xe72d4cc29285e33a1bd3f2a5e433256378ebfb88`。"],
+        ["**WLFIcx**", "（AssetCX 式 `cx` vault）", "Ethereum", "Concrete", "Permission required（需授权）", "机构级。"],
+      ],
+    },
+    { type: "heading", level: 2, text: "已结束的活动" },
+    {
+      type: "table",
+      headers: ["活动", "网络", "Curator", "状态"],
+      rows: [
+        ["**USDai DEX & MM**", "Arbitrum", "USDai", "已结束 → 仅可提现的清算阶段"],
+        ["**Stable**", "Stable, Ethereum", "Concrete", "已结束 → 仅可提现的清算阶段"],
+      ],
+    },
+    { type: "p", text: "参见 [Campaigns & pre-deposits](/docs/02-intermediate/04-campaigns-and-predeposits)。" },
+    { type: "heading", level: 2, text: "命名规则" },
+    {
+      type: "ul",
+      items: [
+        "`ct<Asset>` - 普通 vault 份额（例如 `ctDefiUSDT`）。",
+        "`<asset>cx` - 面向合格托管资产的 **AssetCX** vault，显示为 *Permission Required*。",
+        "「Senior」「Frontier」等是由 vault 部署方自行选定的产品标签。",
+      ],
+    },
+    { type: "heading", level: 2, text: "按你自己的标准比较 vault" },
+    { type: "p", text: "**不要**只看 APY 就做选择。需要核查：策略类型、托管模式、curator 的口碑、审计范围/日期、提现延迟与上限、冷静期、费用结构，以及该 vault 是否需要许可。社区提供的 *Vault Explorer* 和 *Vault Optimizer* 工具可以帮助你比较（参见[Tools catalog](/docs/04-ecosystem/01-tools-catalog)）。" },
+  ],
+  id: [
+    { type: "quote", text: "**Level:** Menengah · Data diambil dari [app.concrete.xyz/earn](https://app.concrete.xyz/earn) pada tanggal di atas. Daftar vault, APY, dan TVL bisa berubah - **verifikasi ulang di app** sebelum bertindak. Angka TVL/APY tidak ter-render pada teks halaman yang diambil, sehingga sengaja dihilangkan di sini." },
+    { type: "heading", level: 2, text: "Cara membaca kartu vault" },
+    {
+      type: "table",
+      headers: ["Field", "Arti"],
+      rows: [
+        ["**Target APY / Live APY / 7-day live APY**", "Target = tujuan yang diiklankan; *Live* adalah rata-rata tertimbang posisi dari APY yang dilaporkan; 7-day adalah versi yang sama selama seminggu terakhir. Tidak ada yang dijamin."],
+        ["**Curator**", "Operator yang menjalankan strategi (Concrete, Royco, USDai…)."],
+        ["**Withdrawal queue**", "Berapa lama / model apa yang dipakai untuk keluar."],
+        ["**Vault token / withdrawal token**", "Apa yang Anda terima saat deposit / saat mengajukan keluar."],
+        ["**Wallet setup**", "Teknologi custody di balik wallet strategi (Fireblocks, Fordefi…)."],
+        ["**Auditors**", "Firma yang mengaudit kode vault."],
+        ["**Permissioned**", "Deposit dibatasi hanya untuk peserta yang disetujui."],
+      ],
+    },
+    { type: "heading", level: 2, text: "Vault yang aktif saat snapshot" },
+    {
+      type: "table",
+      headers: ["Vault", "Aset", "Chain", "Curator", "Akses", "Catatan"],
+      rows: [
+        ["**RWA USD1**", "USD1", "Ethereum", "Concrete", "Permissioned", "Target APY yang ditampilkan: 8%. Vault bergaya RWA institusional."],
+        ["**WBTC Vault**", "WBTC", "Ethereum", "Concrete", "Open", "Wallet: Fireblocks. Auditor yang tercantum: Halborn, Code4rena, Zellic. Antrean penarikan: 21 hari. Address `0xf72bd5a56de97840f1fdd3641b556126c10aa1c4`."],
+        ["**Royco ETH**", "ETH", "Ethereum", "Royco", "Open (deposit dilakukan di app Royco)", "Address `0x41Ce72E04D349Eb957bdc373baA9c69207032c56`. Wallet: lihat Royco."],
+        ["**Senior Royco USDC**", "USDC", "Ethereum", "Royco", "Open (via Royco)", "Address `0xcd9f5907f92818bc06c9ad70217f089e190d2a32`."],
+        ["**Concrete DeFi USDT**", "USDT", "Ethereum", "Concrete", "Open", "Share token `ctDefiUSDT`. Wallet: Fordefi (dikontrol kebijakan, signer yang disetujui). Auditor: Halborn, Cantina. Address `0x0e609b710da5e0aa476224b6c0e5445ccc21251e`."],
+        ["**WeETH Vault**", "weETH", "Ethereum", "Concrete", "Private / permissioned", "-"],
+        ["**Concrete Frontier**", "USDC", "Ethereum", "Concrete", "Open", "Wallet: Fireblocks. Auditor: Halborn, Cantina. Address `0xe72d4cc29285e33a1bd3f2a5e433256378ebfb88`."],
+        ["**WLFIcx**", "(vault bergaya AssetCX `cx`)", "Ethereum", "Concrete", "Permission required", "Institusional."],
+      ],
+    },
+    { type: "heading", level: 2, text: "Kampanye yang sudah selesai" },
+    {
+      type: "table",
+      headers: ["Campaign", "Network(s)", "Curator", "Status"],
+      rows: [
+        ["**USDai DEX & MM**", "Arbitrum", "USDai", "Selesai → wind-down withdraw-only"],
+        ["**Stable**", "Stable, Ethereum", "Concrete", "Selesai → wind-down withdraw-only"],
+      ],
+    },
+    { type: "p", text: "Lihat [Campaigns & pre-deposits](/docs/02-intermediate/04-campaigns-and-predeposits)." },
+    { type: "heading", level: 2, text: "Konvensi penamaan" },
+    {
+      type: "ul",
+      items: [
+        "`ct<Asset>` - share vault normal (misalnya `ctDefiUSDT`).",
+        "`<asset>cx` - vault **AssetCX** untuk aset qualified-custody, ditampilkan sebagai *Permission Required*.",
+        "\"Senior\"/\"Frontier\" dst. adalah label produk yang dipilih oleh pihak yang men-deploy vault.",
+      ],
+    },
+    { type: "heading", level: 2, text: "Bandingkan vault sesuai kriteria Anda sendiri" },
+    { type: "p", text: "Jangan memilih **hanya berdasarkan APY**. Periksa: jenis strategi, model custody, reputasi curator, cakupan/tanggal audit, delay dan batas penarikan, cooldown, skema fee, dan apakah vault tersebut permissioned. Tool komunitas *Vault Explorer* dan *Vault Optimizer* membantu Anda membandingkan (lihat [Tools catalog](/docs/04-ecosystem/01-tools-catalog))." },
+  ],
+};
